@@ -1,6 +1,6 @@
 # Arduino Nano Fox Hunt Transmitter
 
-**A one-of-a-kind Fox Hunt Transmitter with remotely switchable audio from an SD card.** <img src="https://github.com/user-attachments/assets/5e93cae8-8d00-4fab-9e4f-e9ad273243ce" alt="Fox Hunt Transmitter" width="6%" align="middle">
+> **A one-of-a-kind Fox Hunt Transmitter with remotely switchable audio from an SD card.** <img src="https://github.com/user-attachments/assets/5e93cae8-8d00-4fab-9e4f-e9ad273243ce" alt="Fox Hunt Transmitter" width="6%" align="middle">
 
 --- 
 ## 📡 About the Project
@@ -45,8 +45,13 @@ The circuit can be built on a **custom PCB or a general-purpose perfboard**.
 ### ⚠️ BS170 / 2N7000 Warning 
 
 **BS170 and 2N7000 are NOT pin-compatible.**
-Their pinouts are different.
-Always check the transistor datasheet and verify the pin orientation before replacing one with the other.
+- Their pinouts are different. Always check the transistor datasheet and verify the pin orientation before replacing one with the other.
+
+---
+
+# Schematic
+
+<img width="70%" alt="Schematic_fox-tx_2026-09-10" src="https://github.com/user-attachments/assets/1e3ae334-4121-47a1-9a64-6901572e5bb1" />
 
 ---
 
@@ -57,18 +62,16 @@ Always check the transistor datasheet and verify the pin orientation before repl
 <img width="35%" alt="image" src="https://github.com/user-attachments/assets/e6e69390-ad71-4ff9-b402-bed04d1bd954" />
 
 
----
-
 ## BS170 / 2N7000
 
 <img src="https://github.com/user-attachments/assets/eba941ef-e4e2-4066-8b78-6e4be3481cab" width="40%" alt="image" /> <img src="https://github.com/user-attachments/assets/78f1288d-f91f-4550-9fe2-8b52d4caf3ac" width="40%" alt="image" />
 
  **Important:** Check the actual transistor being used before assembling the circuit. BS170 and 2N7000 have different pin arrangements.
- 
- ---
-## 3.5 mm Dual Audio Connector 
 
-<img width="35%" alt="image" src="https://github.com/user-attachments/assets/c04f93dc-5c5f-4bd9-8dbc-c0643771f61a" /> <img width="40%" alt="image" src="https://github.com/user-attachments/assets/8192d3f9-c5e6-4bcb-986e-fd6c916e1d71" />
+
+## 3.5 mm Audio Connector 
+
+<img width="35%" alt="image" src="https://github.com/user-attachments/assets/c04f93dc-5c5f-4bd9-8dbc-c0643771f61a" /> <img width="40%" alt="image" src="https://github.com/user-attachments/assets/8192d3f9-c5e6-4bcb-986e-fd6c916e1d71" /> <img width="50%" alt="PJ306" src="https://github.com/user-attachments/assets/b58698d1-f3a2-42b2-bc28-a2501262e594" />
 
 ---
 
@@ -106,16 +109,13 @@ arduino-nano-fox-hunt-transmitter/
  ├── other_required.cpp
  ├── other_required.h
  │
- ├── mp3/
+ └─── mp3/
      ├── 0001.mp3
      ├── 0002.mp3
      ├── 0003.mp3
      └── ...
 
 ```
-
-
-> **Important:** Keep the required .cpp and .h files together with the main Arduino sketch.
 ---
 
 ## 💾 SD Card Setup
@@ -147,7 +147,7 @@ Use:
 0002.mp3
 0003.mp3
 0004.mp3
-...
+....
 ```
 
 Example:
@@ -159,41 +159,31 @@ mp3/
 ├── 0003.mp3
 ├── 0004.mp3
 ├── 0005.mp3
-├── 0006.mp3
-├── 0007.mp3
-├── 0008.mp3
-├── 0009.mp3
-├── 0010.mp3
-└── 0011.mp3
+└── ....
 ```
 
 ### Important
 
-You can change the **audio content**, but do not change the required file numbering format.
+You can replace the audio content with your own recordings, but **do not change the required file numbering format**.
 
-For example:
+For example, `0009.mp3` can contain any audio message you want, but the filename must remain:
 
-```text
-0009.mp3
-```
+`0009.mp3`
 
-can contain any audio message you want, but it should remain named:
-
-```text
-0009.mp3
-```
-
-The four-digit numbering format is required for the DFPlayer to recognize the files correctly with this project.
+The **four-digit numbering format** is required for the DFPlayer Mini to correctly recognize and access the audio files used by this project.
 
 ---
 
 ## 🛠️ Arduino IDE Setup
 
 Open the main `.ino` file in Arduino IDE.
+
 Select the appropriate board.
 
 ### Arduino Nano
 Tools → Board → Arduino AVR Boards → Arduino Nano
+
+or:
 
 ### Arduino Uno
 Tools → Board → Arduino AVR Boards → Arduino Uno
@@ -203,6 +193,7 @@ For an Arduino Nano, select the appropriate processor/bootloader option for your
 ##### Then select the correct COM port:
 
 Tools → Port
+
 Compile and upload the sketch.
 
 ---
@@ -283,11 +274,10 @@ This makes it possible to remotely switch between different audio messages witho
 
 ---
 
-from here
 
 ## 🔁 Automatic Audio Loop
 
-DTMF commands 1, 2, and 3 start the automatic audio loop.
+DTMF commands `1`, `2`, and `3` start the automatic audio loop.
 
 The default timing is:
 
@@ -304,21 +294,22 @@ The default timing is:
                   │
                   └──────────────► Repeat
 
-During the ON phase, the selected audio plays continuously.
+During the **ON phase**, the selected audio plays continuously.
 
 If the audio file finishes before the 60-second ON period is complete, the same audio file is automatically restarted.
 
 After 60 seconds:
 
-PTT is released
-Audio transmission stops
-External LED turns OFF
-The transmitter remains OFF for 60 seconds
+- PTT is released
+- Audio transmission stops
+- External LED turns OFF
+- The transmitter remains OFF for 60 seconds
 
 After the OFF period, the selected audio starts again automatically.
 
 ---
-⏱️ Changing the Loop Duration
+
+## ⏱️ Changing the Loop Duration
 
 The ON and OFF duration can be changed in the Arduino source code.
 
@@ -329,18 +320,21 @@ const unsigned long LOOP_DURATION = 60000UL;
 Examples:
 
 30000UL   = 30 seconds
+
 60000UL   = 60 seconds
+
 120000UL  = 120 seconds
 
 The same value is used for both the ON and OFF periods.
 
 ---
-💡 LED Indicators
-Arduino Onboard LED
+
+## 💡 LED Indicators
+### Arduino Onboard LED
 
 The Arduino onboard LED indicates that automatic looping is active.
 
-Default blink timing:
+##### Default blink timing:
 
 ON  → 1 second
 OFF → 1 second
@@ -349,15 +343,14 @@ The blink speed can be changed using:
 
 const unsigned long LED_BLINK_MS = 1000UL;
 
-
-External LED
+#### External LED
 
 The external LED indicates transmitter/audio activity.
 
 It turns ON when the transmitter is keyed and turns OFF when the transmission/audio ends.
 
 ---
-📺 Testing Videos
+## 📺 Testing Videos
 
 Add your YouTube testing videos below.
 
@@ -380,72 +373,31 @@ Test Video 4
 Replace YOUR_YOUTUBE_URL_HERE with the actual YouTube video URLs.
 
 ---
-📻 Tested Radios
 
-The transmitter has been tested using:
-
-Baofeng UV-5R
-Baofeng UV-82
-
-DTMF audio switching and transmitter operation were tested using these radios.
-
----
-🧰 Construction
-
-The circuit can be constructed using:
-
-Custom PCB
-Perfboard
-Prototype board
-Point-to-point wiring
-
-A custom PCB provides a cleaner and more permanent installation, while a perfboard is suitable for experimentation, testing, and prototypes.
+## 📝 Important Notes
+- The project has been tested on an **Arduino Nano** with **Baofeng UV-5R and UV-82** radios.
+- **Arduino Uno** is also supported by the current design.
+- Other Arduino-compatible microcontrollers may work if they are supported by the **Arduino IDE** and the required libraries.
+- Keep the **`mp3`** folder name unchanged.
+- Maintain the **four-digit MP3 file numbering format** (for example, `0001.mp3`, `0002.mp3`, `0009.mp3`).
+- **BS170 and 2N7000 are not pin-compatible.** Always check the transistor pinout before substituting one for the other.
+- Use a properly formatted SD card that is compatible with the **DFPlayer Mini**.
+- Always verify the **radio, transmitter, audio, PTT, and power connections** before operating the transmitter.
 
 ---
-⚙️ Customization
-
-The project can be customized according to your requirements.
-
-Common parameters that can be modified include:
-
-Audio files
-DTMF-to-audio assignments
-ON/OFF loop duration
-LED blink speed
-DFPlayer volume
-PTT timing
-Hardware configuration
-
-The main configurable values are clearly identified in the source code with comments.
-
----
-📝 Important Notes
-The project has been tested on an Arduino Nano.
-Arduino Uno is also supported by the current design.
-Other Arduino-compatible microcontrollers may work if supported by the Arduino IDE and required libraries.
-Keep the mp3 folder name unchanged.
-Maintain the four-digit MP3 numbering format.
-Do not assume BS170 and 2N7000 are pin-compatible.
-Check the transistor pinout before installation.
-Use a properly formatted SD card compatible with the DFPlayer Mini.
-Verify all audio, PTT, radio, and power connections before operation.
-
----
-📜 Credits
+## 📜 Credits
 
 This project is free to use, modify, and fork.
-
 You are welcome to build upon the project and adapt it for your own Fox Hunt or amateur-radio application.
+If you use, modify, or redistribute this project, please give credit to the original author: ***VU25RK***
 
-If you use, modify, or redistribute this project, please give credit to the original author:
-
-VU25RK
+> Built for amateur-radio experimentation, Fox Hunting, and the amateur-radio community.
 
 ---
-🦊 Have Fun Fox Hunting!
+## 🦊 Have Fun Fox Hunting!
 
 Listen. Track. Find the Fox.
 
-73 de VU25RK
+73 de **VU25RK**
 
 ---
