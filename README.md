@@ -4,8 +4,21 @@
 
 --- 
 ## 📡 About the Project
-This is an **Arduino-based Fox Hunt Transmitter** designed for amateur-radio fox hunting.
-What makes this transmitter unique is that **audio stored on an SD card can be remotely selected and switched using DTMF tones**. Instead of being limited to a single fixed audio message, different audio tracks can be stored on the DFPlayer Mini and selected remotely through the radio. The audio files can also be replaced or customized without changing the transmitter hardware.
+This project is an **Arduino-based Fox Hunt Transmitter** designed for amateur-radio fox hunting.
+Unlike conventional fox hunt transmitters that use a fixed tone or single fixed message, this transmitter allows multiple audio messages stored on a DFPlayer Mini SD card to be remotely selected using DTMF tones.
+
+Remote DTMF commands are received by the fox radio, decoded by the Arduino, and used to select the required audio. The selected audio is then played through the DFPlayer Mini and transmitted over the radio.
+Audio files can also be replaced or customized directly on the SD card without modifying the transmitter hardware.
+
+### Background / Motivation
+Towards the end of 2024, Rajan Sir (VU2JXM) approached me with his requirement to build a Fox Hunt Transmitter. I started by studying existing designs, including an [Instructables project](https://www.instructables.com/HAM-Radio-Foxhunt-Transmitter-for-CW-or-Morris-Cod/) and a [YouTube video](https://www.youtube.com/watch?v=e4b0fNvXA10).
+
+My first build followed the Instructables design using a relay and an Adafruit Sound Board provided by Rajan Sir. After working with it, I found the Sound Board expensive and difficult to source, so I replaced it with a locally available **DFPlayer Mini**.
+
+I later replaced the mechanical relay used for PTT with a **MOSFET-based switching** circuit. After several iterations, I eliminated the remaining relay and Arduino-generated Morse tones, moving all audio playback to the DFPlayer Mini.
+The result is the compact, practical, and easy-to-build Fox Hunt Transmitter presented in this repository.
+
+This project is therefore not simply a copy of the original design, but the result of several iterations and improvements made while developing a more compact and practical Fox Hunt Transmitter.
 
 ### Features
 - 🎙️ Remote DTMF audio selection
@@ -114,7 +127,6 @@ arduino-nano-fox-hunt-transmitter/
      ├── 0002.mp3
      ├── 0003.mp3
      └── ...
-
 ```
 ---
 
@@ -350,27 +362,24 @@ The external LED indicates transmitter/audio activity.
 It turns ON when the transmitter is keyed and turns OFF when the transmission/audio ends.
 
 ---
-## 📺 Testing Videos
+## 🎥 Testing Videos
 
-Add your YouTube testing videos below.
+https://youtu.be/06isKHrUTCU?si=V4ic4jOEcU0C1ZKI
 
-Test Video 1
+https://youtube.com/shorts/4rrsjFn369g?si=LEiABZAbST_ujnNB 
 
-▶️ DTMF Audio Switching Test
+https://youtube.com/shorts/dZy0cm5D07w?si=wkH52YXZsJ08Ufbp
 
-Test Video 2
 
-▶️ Audio Loop Test
+[![Watch the video](https://youtube.com)](https://youtube.com/shorts/4rrsjFn369g)
 
-Test Video 3
 
-▶️ Fox Hunt Transmitter Test
+#### ▶️Test Video 1
+[![PXL 20251206 081900759](https://thumbs.video-to-markdown.com/dea09a0f.jpg)](https://youtu.be/06isKHrUTCU)
 
-Test Video 4
+#### ▶️Test Video 2
 
-▶️ Field Test
-
-Replace YOUR_YOUTUBE_URL_HERE with the actual YouTube video URLs.
+#### ▶️Test Video 2
 
 ---
 
