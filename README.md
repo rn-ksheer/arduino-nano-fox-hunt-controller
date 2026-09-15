@@ -362,24 +362,40 @@ The external LED indicates transmitter/audio activity.
 It turns ON when the transmitter is keyed and turns OFF when the transmission/audio ends.
 
 ---
-## 🎥 Testing Videos
-
+<!--
 https://youtu.be/06isKHrUTCU?si=V4ic4jOEcU0C1ZKI
 
 https://youtube.com/shorts/4rrsjFn369g?si=LEiABZAbST_ujnNB 
 
 https://youtube.com/shorts/dZy0cm5D07w?si=wkH52YXZsJ08Ufbp
+-->
+## 🎥 Testing Videos
+<div align="left">
+ 
+#### ▶️Video-1
+  <a href="https://youtu.be/06isKHrUTCU">
+    <img src="https://img.youtube.com/vi/06isKHrUTCU/hqdefault.jpg" alt="Video 1" width="400" />
+  </a>
+  <br><br>
+  
+#### ▶️Video-2
+  <a href="https://youtube.com/shorts/4rrsjFn369g">
+    <img src="https://img.youtube.com/vi/4rrsjFn369g/hqdefault.jpg" alt="YouTube Short 1" width="400" />
+  </a>
+  <br><br>  
+  
+#### ▶️Video-3
+  <a href="https://youtube.com/shorts/dZy0cm5D07w">
+    <img src="https://img.youtube.com/vi/dZy0cm5D07w/hqdefault.jpg" alt="YouTube Short 2" width="400" />
+  </a>
+
+</div>
 
 
-[![Watch the video](https://youtube.com)](https://youtube.com/shorts/4rrsjFn369g)
 
 
-#### ▶️Test Video 1
-[![PXL 20251206 081900759](https://thumbs.video-to-markdown.com/dea09a0f.jpg)](https://youtu.be/06isKHrUTCU)
 
-#### ▶️Test Video 2
 
-#### ▶️Test Video 2
 
 ---
 
